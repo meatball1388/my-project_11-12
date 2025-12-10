@@ -17,11 +17,21 @@
 
         <nav class="nav">
             <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="news.html">Новости</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="practices.html">Практики</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="goods.html">Товары</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contacts.html">Контакты</a>
+                </li>
             </ul>
         </nav>
 
@@ -29,7 +39,6 @@
             <h2 class="page-title">Контактная информация</h2>
 
             <section class="contacts-container">
-
                 <div class="contact-grid">
                     <article class="contact-card">
                         <h3 class="contact-title">Электронная почта</h3>
@@ -42,9 +51,9 @@
                     </article>
                 </div>
 
-                <!-- Эта кнопка теперь открывает модальное окно -->
-                <button id="openDialog" class="contact-button">Связаться со мной</button>
-
+                <button class="contact-button" onclick="document.getElementById('callModal').showModal()">
+                    Заказать звонок
+                </button>
             </section>
         </main>
 
@@ -52,75 +61,48 @@
             <p class="footer__text">© 2025 Алёхин Алексей Витальевич</p>
         </footer>
 
+        <!-- Модальное окно с формой -->
+        <dialog id="callModal">
+            <h2>Связаться со мной</h2>
+            <form class="contact-form" method="dialog">
+                <label>
+                    Имя
+                    <input type="text" name="name" required>
+                </label>
+
+                <label>
+                    E-mail
+                    <input type="email" name="email" required>
+                </label>
+
+                <label>
+                    Телефон
+                    <input type="tel" name="phone" required>
+                </label>
+
+                <label>
+                    Удобное время звонка
+                    <select name="time">
+                        <option>09:00 - 12:00</option>
+                        <option>12:00 - 15:00</option>
+                        <option>15:00 - 18:00</option>
+                        <option>18:00 - 21:00</option>
+                    </select>
+                </label>
+
+                <label>
+                    Дополнительная информация
+                    <textarea name="info"></textarea>
+                </label>
+
+                <div class="form-actions">
+                    <button type="button" onclick="document.getElementById('callModal').close()">Отмена</button>
+                    <button type="submit">Заказать звонок</button>
+                </div>
+            </form>
+        </dialog>
+
     </div>
-
-    <!-- Модальное окно с формой -->
-    <dialog id="contactDialog">
-        <h2>Заказать звонок</h2>
-        <form id="callback-form" class="contact-form" method="dialog">
-            <label>
-                Имя
-                <input type="text" name="name" required>
-            </label>
-
-            <label>
-                E-mail
-                <input type="email" name="email" required>
-            </label>
-
-            <label>
-                Телефон
-                <input type="tel" name="phone" placeholder="+7 (900) 000-00-00" required>
-            </label>
-
-            <label>
-                Удобное время звонка
-                <select name="time">
-                    <option>09:00 - 12:00</option>
-                    <option>12:00 - 15:00</option>
-                    <option>15:00 - 18:00</option>
-                    <option>18:00 - 21:00</option>
-                </select>
-            </label>
-
-            <label>
-                Дополнительная информация
-                <textarea name="info"></textarea>
-            </label>
-
-            <div class="form-actions">
-                <button type="button" id="closeDialog">Отмена</button>
-                <button type="submit">Заказать звонок</button>
-            </div>
-        </form>
-    </dialog>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const dialog = document.getElementById('contactDialog');
-            const openBtn = document.getElementById('openDialog');
-            const closeBtn = document.getElementById('closeDialog');
-            const form = document.getElementById('callback-form');
-
-            if (openBtn && dialog) {
-                openBtn.addEventListener('click', () => dialog.showModal());
-            }
-
-            if (closeBtn && dialog) {
-                closeBtn.addEventListener('click', () => dialog.close());
-            }
-
-            if (form && dialog) {
-                form.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    alert('Заявка отправлена!');
-                    form.reset();
-                    dialog.close();
-                });
-            }
-        });
-    </script>
-
 </body>
 
 </html>

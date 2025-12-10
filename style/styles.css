@@ -311,7 +311,6 @@ body {
 }
 
 /* ===== КОНТАКТЫ ===== */
-
 .contacts-container {
     display: flex;
     flex-direction: column;
@@ -334,6 +333,12 @@ body {
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     text-align: center;
     border-left: 4px solid #f39c12;
+    transition: transform 0.3s ease; /* добавлено */
+}
+
+/* новое: поднятие при наведении */
+.contact-card:hover {
+    transform: translateY(-5px);
 }
 
 .contact-title {
@@ -350,18 +355,6 @@ body {
     line-height: 1.6;
 }
 
-.contact-button {
-    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
-    color: white;
-    border: none;
-    padding: 15px 40px;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    align-self: center;
-}
 
 /* ===== ФОРМА В МОДАЛКЕ ===== */
 
@@ -378,6 +371,25 @@ body {
     flex-direction: column;
     gap: 4px;
 }
+
+.contact-button {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: center;
+}
+
+.contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
 
 .contact-form input,
 .contact-form select,
@@ -451,7 +463,6 @@ dialog h2 {
 }
 
 /* ===== ПРАКТИКИ ===== */
-
 .practices-container {
     display: flex;
     flex-direction: column;
@@ -464,6 +475,12 @@ dialog h2 {
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     border-left: 4px solid #3498db;
+    transition: transform 0.3s ease; /* добавили плавность */
+}
+
+/* новое: эффект поднятия при наведении */
+.practice-card:hover {
+    transform: translateY(-5px);
 }
 
 .practice-title {
@@ -477,6 +494,7 @@ dialog h2 {
     color: #7f8c8d;
     margin: 0;
 }
+
 
 /* ===== ФУТЕР ===== */
 
@@ -509,3 +527,4 @@ dialog h2 {
         height: 220px;
     }
 }
+
